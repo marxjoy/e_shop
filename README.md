@@ -19,7 +19,7 @@ There are two roles in the application:
 * Customer
 * Seller
 
-##Seller
+### Seller
 To create Seller account log as SUPERUSER in Django Admin at
 ```
 /admin
@@ -37,7 +37,7 @@ Seller can:
 * update product
 
 
-##Customer
+### Customer
 To create Customer account register on page. 
 Customer can:
 * add product to cart
