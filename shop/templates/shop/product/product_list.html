@@ -1,0 +1,39 @@
+{% extends "shop/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+    {% for product in products %}
+     <div class="col-md-3 col-sm-6 product-cart">
+            <div class="product-grid4">
+                <div class="product-image4">
+                    <a href="{{ product.get_absolute_url }}">
+                        {% if product.image %}
+                        {% load thumbnail %}
+                        {% thumbnail product.image "300" as im %}
+                            <img class="pic-1" src="{{ im.url }}" alt="image {{ product.name }} {{ product.manufacturer }}">
+                        {% endthumbnail %}
+                        {% else %}
+                         <img class="pic-1" src="{% static 'img/no-image.png' %}" alt="image {{ product.name }} {{ product.manufacturer }}">
+                        {% endif %}
+
+
+                    </a>
+                </div>
+            <div class="product-content">
+                <h1 class="title">
+                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                </h1>
+                <h2 class="title-secondary">{{ product.manufacturer }}</h2>
+                <div class="price">
+                    {{ product.price }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    No products.
+{% endfor %}
+</div>
+    {% include "shop/pagination.html" with page=page_obj %}
+{% endblock %}

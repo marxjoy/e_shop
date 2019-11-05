@@ -1,0 +1,22 @@
+[
+{
+  "model": "auth.user",
+  "pk": 26,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$cSvXykMN31WS$9dd28ksY0F6RuntF28q6BvWwbfaOF558kuR5Dd7DhEQ=",
+    "last_login": "2019-10-22T09:49:23.303Z",
+    "is_superuser": false,
+    "username": "clerk",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-10-22T09:48:49Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+}
+]

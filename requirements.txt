@@ -1,0 +1,4 @@
+Django==2.2
+Pillow==6.2.0
+sorl-thumbnail==12.5.0
+WeasyPrint==50

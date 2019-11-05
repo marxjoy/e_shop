@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body >
+
+<div id="invoice">
+
+    <div class="row">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                              <div class="col company-details">
+                        <div>Company name</div>
+                        <div>Company adress</div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">INVOICE TO:</div>
+                        <h2 class="to">{{ order.user.adress }}</h2>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">INVOICE  <strong>{{ order.id }}</strong></h1>
+                        <div class="date">Date of Invoice: {{ order.created }}</div>
+                        <div class="date">Due Date: {{ order.deadline }}</div>
+                    </div>
+                </div>
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">Item</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Unit Price</th>
+                            <th class="text-center">Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {% for item in order.items.all %}
+                        {% with product=item.product %}
+                        <tr>
+                            <td class="no"></td>
+                            <td class="text-center"><h3>
+                            {{ product.name }}
+                                </h3>
+
+                            </td>
+                            <td class="unit text-center" >{{ item.quantity }}</td>
+                            <td class="qty text-center">{{ item.price }}</td>
+                            <td class="total text-center">{{ item.get_cost }}</td>
+                        </tr>
+                        {% endwith %}
+                    {% endfor %}
+                    </tbody>
+<hr>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+
+                            <td colspan="2"></td>
+
+                        </tr>
+                    </tfoot><hr>
+                     <td colspan="2">GRAND TOTAL: {{ order.get_total_cost }}</td>
+                </table>
+
+                <div class="notices">
+
+                </div>
+            </main>
+            <footer>
+
+            </footer>
+        </div>
+        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+        <div></div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+

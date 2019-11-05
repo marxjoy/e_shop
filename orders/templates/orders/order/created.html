@@ -1,0 +1,9 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %} Order created {% endblock %}
+
+{% block content %}
+<h1>Thank you, order created. Order id: <strong>{{ order.id }}</strong></h1>
+<p>We have sent an email with confirm and invoice.</p>
+{% endblock %}

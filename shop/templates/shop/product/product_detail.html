@@ -1,0 +1,48 @@
+{% extends "shop/base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+  <div class="row">
+     <div class="col-md-6">
+        <div class="product-grid4">
+                <div class="product-image4">
+
+       <img class="pic-1" src="{% if product.image %}{{ product.image.url }}
+                               {% else %}{% static 'img/no-image.png' %}{% endif %}" alt="{{ product.name }}">
+                </div>
+        </div>
+     </div>
+    <div class="col-md-6">
+      <div class="product-grid4">
+            <div class="product-content">
+                <h1 class="title">
+                    {{ product.name }}
+                </h1>
+                <h2 class="title-secondary">
+                  {{ product.manufacturer }}
+                </h2>
+                <div class="price">
+                    {{ product.price }}
+                </div>
+                <p>{{ product.description }}</p>
+            </div>
+          {% load auth_extras %}
+          {% if request.user|has_group:"sellers" %}
+              <a class="sellers-panel btn btn-primary" href="{% url 'shop:product_add' %}">Add new product</a>
+              <a class="sellers-panel btn btn-primary" href="{% url 'shop:product_update' product.id product.slug %}">Edit {{ product.name }}</a>
+              <a class="sellers-panel btn btn-danger" href="{% url 'shop:product_delete' product.id product.slug %}">Delete {{ product.name }}</a>
+          {% else %}
+           <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+             <input type="submit" value="Add to Cart">
+            </form>
+          {% endif %}
+      </div>
+     </div>
+  </div>
+
+
+
+
+{% endblock %}

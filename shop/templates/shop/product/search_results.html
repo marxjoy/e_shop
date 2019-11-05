@@ -1,0 +1,33 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<p>Searched phrase: "<strong>{{ request.GET.q }}</strong>"</p>
+<div class="row">
+    {% for product in object_list %}
+     <div class="col-md-3 col-sm-6">
+            <div class="product-grid4">
+                <div class="product-image4">
+                    <a href="{{ product.get_absolute_url }}">
+                        {% load thumbnail %}
+                        {% thumbnail product.image "300" as im %}
+                            <img class="pic-1" src="{% if product.image %}{{ im.url }}{% endif %}" alt="image {{ product.name }} {{ product.manufacturer }}">
+                        {% endthumbnail %}
+                    </a>
+                </div>
+            <div class="product-content">
+                <h1 class="title">
+                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                </h1>
+                <h2 class="title-secondary">{{ product.manufacturer }}</h2>
+                <div class="price">
+                    {{ product.price }}
+                </div>
+            </div>
+        </div>
+    </div>
+ {% empty %}
+    <p>No results</p>
+{% endfor %}
+</div>
+    {% include "shop/pagination.html" with page=page_obj %}
+{% endblock %}
