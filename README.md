@@ -1,4 +1,4 @@
-# Application for placing orders and generating invoices
+# E-shop application for placing orders and generating invoices
 
 ## 
 * [General info](#general-info)
@@ -7,7 +7,7 @@
 
 ## General info
 Simple Django shop application for placing orders and generating invoices.
-Anonymous user:
+Anonymous user can:
 * see all products in shop
 * see product detail
 * search products by name or manufacturer
