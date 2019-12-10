@@ -11,7 +11,7 @@
                         {% if product.image %}
                         {% load thumbnail %}
                         {% thumbnail product.image "300" as im %}
-                            <img class="pic-1" src="{{ im }}" alt="image {{ product.name }} {{ product.manufacturer }}">
+                            <img class="pic-1" src="{{ im.url }}" alt="image {{ product.name }} {{ product.manufacturer }}">
                         {% endthumbnail %}
                         {% else %}
                          <img class="pic-1" src="{% static 'img/no-image.png' %}" alt="image {{ product.name }} {{ product.manufacturer }}">
