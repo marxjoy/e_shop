@@ -11,7 +11,7 @@
                         {% if product.image %}
                         {% load thumbnail %}
                         {% thumbnail product.image "300" as im %}
-                            <img class="pic-1" src="{{ im.url }}" alt="image {{ product.name }} {{ product.manufacturer }}">
+                            <img class="pic-1" src="{{ im }}" alt="image {{ product.name }} {{ product.manufacturer }}">
                         {% endthumbnail %}
                         {% else %}
                          <img class="pic-1" src="{% static 'img/no-image.png' %}" alt="image {{ product.name }} {{ product.manufacturer }}">
@@ -36,4 +36,24 @@
 {% endfor %}
 </div>
     {% include "shop/pagination.html" with page=page_obj %}
+
+   <div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">Contact</h2>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+        <hr>
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+
+
+
+      <p><i class="fas fa-home"></i> Warsaw, PL</p>
+      <p><i class="fas fa-phone"></i> </span> +48 1515151515</p>
+      <p><i class="fas fa-at"></i></i></span> myemail@some-shop.com</p>
+    </div>
+  </div>
+   </div>
+</div>
+</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23299.398222681448!2d21.011030957789863!3d52.13345643503043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1575975320691!5m2!1spl!2spl" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
 {% endblock %}

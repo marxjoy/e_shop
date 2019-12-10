@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
      <link href="{% static "css/base.css" %}" rel="stylesheet">
 </head>
 <body >
@@ -55,10 +58,19 @@
   </div>
         {% include "shop/searchform.html" %}
 </nav>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Vines shop</h1>
+    <p class="lead">vine cuttings</p>
+  </div>
+</div>
     <div id="content">
+         <h2 class="text-center"> </h2>
+        <hr>
         {% block content %}
         {% endblock %}
     </div>
+
 </div>
 </body>
 </html>
