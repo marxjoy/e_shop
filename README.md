@@ -1,9 +1,14 @@
 # E-shop application for placing orders and generating invoices
 
+Live demo:
+https://aqueous-atoll-04338.herokuapp.com/
+
 ## 
 * [General info](#general-info)
 * [Setup](#setup)
 * [Technologies](#technologies)
+
+
 
 ## General info
 Simple Django shop application for placing orders and generating invoices.
@@ -93,4 +98,4 @@ Project is created with:
 * WeasyPrint==50
 
 Database:
-* SQLite
+* postgresql
